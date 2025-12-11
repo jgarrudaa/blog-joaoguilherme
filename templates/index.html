@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="start">
+        <div class="col-left">
+
+        </div>
+        <div class="col-centro">
+            {% if 'user' in session %}
+            <div class="form-post">
+                <form action="{{ '/editarpost/' + post.idPost | string if post else '/novopost'}}" method="POST">
+
+                        <img src="{{ url_for('static', filename='uploads/' + (session.get('foto') or 'placeholder.jpg')) }}" alt="Foto de {{ session['user'] }}" class="user-icon">
+                        <p>Olá, {{ session['user'] }}! O que você gostaria de postar?</p>
+
+                    <input type="text" name="titulo" placeholder="Título da postagem" value="{{ post.title if post else '' }}" required maxlength="50">
+                    <textarea name="conteudo" placeholder="Escreva aqui..." required>{{ post.content if post else '' }}</textarea>
+                    <button type="submit">{{ 'Salvar' if post else 'Postar' }}</button>
+                </form>
+
+                {% with msg = get_flashed_messages() | first %}
+                    {% if msg %}
+                    <p class="mensagem">{{ msg }}</p>
+                    {% endif %}
+                {% endwith %}
+
+            </div>
+            {% endif %}
+            <div class="feed">
+                {% if not postagens %}
+                    <p>Não há postagens. Volte mais tarde. 💤</p>
+                {% else %}
+                {% for post in postagens %}
+                    <div class="post">
+                        <div class="post-header">
+                            <img src="{{ url_for('static', filename='uploads/' + (post.picture or 'placeholder.jpg')) }}" alt="Foto de {{ post.userName }}">
+                            <p>@{{ post.userName }}</p>
+                            <p class="post-date">{{ post.postDate.strftime('%d/%m/%y às %H:%M') }}</p>
+                        </div>
+                    <div class="post-content">
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.content }}</p>
+                    </div>
+                    {% if post.idUser == session.get('idUser') or 'admin' in session %}
+                    <div class="post-button">
+                        {% if 'user' in session %}
+                        <a href="/editarpost/{{ post.idPost }}"><i data-feather="edit"></i></a>
+                        {% endif %}
+                        <a href="/excluirpost/{{ post.idPost }}" onclick="return confirm('Tem certeza que deseja excluir esta postagem?');"><i data-feather="trash-2"></i></a>
+                    </div>
+                    {% endif %}
+                </div>
+        {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+
+        <div class="col-right">
+
+        </div>
+    </div>
+{% endblock %}

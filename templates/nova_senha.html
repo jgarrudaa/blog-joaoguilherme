@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="novasenha">
+    <h2>Altere a sua senha</h2>
+    <p>Por favor, insira sua nova senha abaixo. (obrigatório)</p>
+    <form class="form-nova-senha" action="/usuario/novasenha" method="POST">
+        <label>Nova Senha:</label>
+        <input type="password" name="new_password" placeholder="Nova Senha" autocomplete="off" required>
+        <label>Confirme a Nova Senha:</label> 
+        <input type="password" name="confirm_password" placeholder="Confirme a Nova Senha" autocomplete="off" required> 
+        <a href="">
+            <button type="submit">Alterar Senha</button>
+        </a>
+        <a href="/">
+            <button type="button" class="cancel-button">Cancelar</button>
+        </a>
+    </form>
+</div>
+
+{% endblock %}

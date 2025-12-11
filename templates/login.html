@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="login">
+    <form class="form-login" action="/login" method="POST">
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Usuário" autocomplete="off" required>
+        <input type="password" name="password" placeholder="Senha" autocomplete="off" required>
+        <button type="submit">Entrar</button>
+        <p>Não tem uma conta? <a href="/sign-up" style="color: blue;">Registre-se</a></p>
+        {% with msg = get_flashed_messages() | first %}
+            {% if msg %}
+                <p class="mensagem" style="color: black;">{{ msg }}</p>
+            {% endif %}
+        {% endwith %}
+    </form>
+</div>
+
+{% endblock %}

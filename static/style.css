@@ -1,0 +1,1052 @@
+/* RESET E ESTILIZAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+}
+
+/* HEADER */
+header {
+    padding: 15px 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16vh;
+    min-height: 13vh;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #f1f1f1;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+header .logo img {
+    width: 60px;
+}
+
+header nav {
+    position: absolute;
+    right: 0;
+    padding-right: 10vh;
+}
+
+.login-button {
+    background: linear-gradient(90deg, #007bff 70%, #0056b3 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+.login-button:hover,
+.login-button:focus {
+    background: linear-gradient(90deg, #0056b3 70%, #007bff 100%);
+    transform: scale(1.005);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    flex: 1;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    min-height: 80vh;
+}
+
+/* COLUNAS */
+.col-left, .col-right {
+    width: 20%;
+    background-color: #5c5a5a;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.col-centro {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 80vh;
+}
+
+/* FORMULÁRIO DE POST */
+.form-post {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.form-post form input,
+.form-post form textarea {
+    width: 100%;
+    margin: 8px 0;
+    border-radius: 7px;
+    border: 1px solid #aaa;
+    padding: 8px;
+}
+
+.form-post form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.form-post form button:hover {
+    background-color: #0056b3;
+}
+
+/* FEED */
+.feed {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* POST */
+
+.feed .post {
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    transition: transform .2s;
+    width: 100%;
+}
+
+.feed .post:hover {
+    transform: translateY(-2px);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-header .user-icon {
+    vertical-align: middle;
+}
+
+.post-date {
+    margin-left: auto;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.post-content h2 {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.post-button {
+    margin-top: 10px;
+}
+
+.post-button a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.post-button a:hover {
+    text-decoration: underline;
+}
+
+textarea {
+    resize: none;
+}
+
+/* MENSAGENS DE ALERTA (flash messages) */
+.mensagem {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #d9efff; /* azul clarinho */
+    border-left: 5px solid #007bff;
+    color: #004085;
+    font-size: 0.95em;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Ícone na frente da mensagem */
+.mensagem::before {
+    content: "ℹ️";
+    font-size: 1.2em;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGIN */
+
+#login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+#login .form-login {
+    background-color: #7d7d7d;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 450px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 2em;
+}
+
+.form-login input {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.form-login button {
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+    font-size: 1em;
+}
+
+.form-login button:hover {
+    background-color: #0056b3;
+}
+
+.form-login p {
+    text-align: center;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+
+/* SIGN-UP */
+
+#sign-up {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+#sign-up .form-sign-up {
+    background-color: #7d7d7d;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 450px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-sign-up h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 2em;
+}
+
+.form-sign-up input {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.form-sign-up button {
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+    font-size: 1em;
+}
+
+.form-sign-up button:hover {
+    background-color: #0056b3;
+}
+
+.form-sign-up p {
+    text-align: center;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+
+/* DASHBOARD ADMIN */
+
+#dashboard {
+    width: 100%;
+    min-height: 80vh;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: #f5f7fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+#dashboard #dados {
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    margin-bottom: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    gap: 3vh;
+}
+
+#dashboard #info {
+    width: 100%;
+    min-height: 65vh;
+    background-color: #eee;
+    display: flex;
+    gap: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 24px;
+}
+
+#dashboard #info .col-info {
+    width: 50%;
+    min-height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #333;
+}
+
+#dashboard #info .col-info h3 {
+    color: #007bff;
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 6px;
+}
+
+#dashboard #info .col-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#dashboard #info .col-info li {
+    background: #f1f1f1;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+
+#dashboard #info .col-info li:hover {
+    background: #e3f0ff;
+}
+
+#dashboard #info .col-info .empty {
+    color: #888;
+    font-style: italic;
+    margin-top: 12px;
+    text-align: center;
+}
+
+#dashboard table, th, td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#dashboard th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* linha zebrada */
+
+#dashboard tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* efeito ao passar o mouse */
+
+#dashboard tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos específicos para a página 404 */
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#content h1 {
+    font-size: 3.5em;
+    color: #333;
+    margin-bottom: 15px;
+    animation: fadeDown 0.6s ease-out;
+}
+
+#content p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeDown 0.8s ease-out;
+}
+
+#content img {
+    max-width: 350px;
+    margin: 20px 0;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+#content img:hover {
+    transform: scale(1.02);
+}
+
+#content .login-button {
+    margin-top: 25px;
+    animation: fadeUp 1.2s ease-out;
+}
+
+/* Animações */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* FOOTER */
+footer {
+    padding: 15px 0;
+    background-color: #333;
+    text-align: center;
+    color: #f1f1f1;
+    font-size: 0.9em;
+}
+
+/* Botões do dashboard: coluna Status (6ª) */
+#dashboard table td:nth-child(6) button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95em;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+/* Botão BANIR (vermelho) */
+#dashboard table tbody tr:not(.usuario-banido) td:nth-child(6) button {
+    background: linear-gradient(180deg,#ff6b6b,#e74c3c);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(231,76,60,0.12);
+}
+#dashboard table tbody tr:not(.usuario-banido) td:nth-child(6) button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(231,76,60,0.18);
+}
+
+/* Botão REATIVAR (verde) */
+#dashboard table tbody tr.usuario-banido td:nth-child(6) button {
+    background: linear-gradient(180deg,#28a745,#1e7e34);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(40,167,69,0.12);
+}
+#dashboard table tbody tr.usuario-banido td:nth-child(6) button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(40,167,69,0.18);
+}
+
+/* Linha de usuário banido - riscado */
+#dashboard table tbody tr.usuario-banido {
+    opacity: 0.6;
+}
+#dashboard table tbody tr.usuario-banido td {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Resetar senha: estilo neutro */
+#dashboard table td:nth-child(7) button {
+    background: transparent;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background .12s ease, transform .12s ease, border-color .12s ease;
+    box-shadow: none;
+}
+#dashboard table td:nth-child(7) button:hover {
+    background: #f8fafc;
+    border-color: #bcd0ff;
+    transform: translateY(-2px);
+}
+
+/* Ícone de ação (lixeira) */
+#dashboard table a i {
+    color: #6b7280;
+    vertical-align: middle;
+}
+
+/* Estilos específicos para a página nova_senha */
+#novasenha {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 80vh;
+    padding: 24px;
+    background: transparent;
+}
+
+#novasenha .form-nova-senha {
+    background-color: #7d7d7d; /* mesmo tom do login/sign-up */
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+#novasenha h2 {
+    color: #007bff;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+#novasenha p {
+    color: #f1f1f1;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+#novasenha label {
+    color: #fff;
+    font-size: 1em;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    align-self: flex-start;
+    font-weight: 500;
+}
+
+#novasenha input[type="password"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#novasenha input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Container para os botões */
+.botoes-container {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Botão primário */
+#novasenha button[type="submit"] {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #007bff 70%, #0056b3 100%);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    font-size: 1em;
+}
+
+#novasenha button[type="submit"]:hover {
+    background: linear-gradient(90deg, #0056b3 70%, #007bff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#novasenha button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Botão secundário - Cancelar */
+.cancel-button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: transparent;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.cancel-button:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cancel-button:active {
+    transform: translateY(0);
+}
+
+/* Mensagens de feedback */
+.mensagem-status {
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.mensagem-sucesso {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.mensagem-erro {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #novasenha {
+        padding: 16px;
+        min-height: 70vh;
+    }
+    
+    #novasenha .form-nova-senha {
+        padding: 24px;
+        gap: 14px;
+    }
+    
+    #novasenha h2 {
+        font-size: 1.6em;
+    }
+    
+    .botoes-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    #novasenha .form-nova-senha {
+        width: 95%;
+        padding: 20px;
+    }
+
+    #novasenha h2 {
+        font-size: 1.4em;
+    }
+    
+    #novasenha p {
+        font-size: 0.95em;
+    }
+    
+    #novasenha input[type="password"] {
+        padding: 10px;
+    }
+    
+    #novasenha button[type="submit"],
+    .cancel-button {
+        padding: 10px 16px;
+    }
+}
+
+/* Estados de loading */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* PÁGINA DE PERFIL */
+.perfil {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    background: #f5f7fa;
+}
+
+.perfil .foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #007bff;
+    box-shadow: 0 8px 24px rgba(0,123,255,0.2);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.perfil .foto-perfil:hover {
+    transform: scale(1.05);
+}
+
+.perfil h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.perfil hr {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.perfil h3 {
+    color: #007bff;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Formulário de perfil */
+.perfil form {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.perfil label {
+    color: #333;
+    font-size: 0.95em;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.perfil input[type="text"],
+.perfil input[type="url"],
+.perfil input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f9fafb;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.perfil input[type="text"]:focus,
+.perfil input[type="url"]:focus,
+.perfil input[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    background: #fff;
+}
+
+/* Botões do formulário */
+.perfil a {
+    text-decoration: none;
+}
+
+.perfil button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+/* Botão Alterar Senha (secundário) */
+.perfil a button {
+    background: #f0f4f8;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    margin-bottom: 8px;
+}
+
+.perfil a button:hover {
+    background: #e5ecf4;
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Botão Salvar Alterações (primário) */
+.perfil form > button[type="submit"] {
+    background: linear-gradient(90deg, #007bff 70%, #0056b3 100%);
+    color: #fff;
+}
+
+.perfil form > button[type="submit"]:hover {
+    background: linear-gradient(90deg, #0056b3 70%, #007bff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,123,255,0.2);
+}
+
+.perfil form > button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Input file customizado */
+.perfil input[type="file"] {
+    padding: 8px;
+}
+
+.perfil input[type="file"]::file-selector-button {
+    background: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    margin-right: 12px;
+}
+
+.perfil input[type="file"]::file-selector-button:hover {
+    background: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .perfil {
+        padding: 24px 16px;
+    }
+    
+    .perfil h2 {
+        font-size: 1.6em;
+    }
+    
+    .perfil form {
+        padding: 24px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 520px) {
+    .perfil {
+        padding: 16px;
+    }
+    
+    .perfil .foto-perfil {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .perfil h2 {
+        font-size: 1.4em;
+    }
+    
+    .perfil form {
+        width: 100%;
+        padding: 18px;
+        gap: 14px;
+    }
+}
+
+/* ícone de usuário: pequeno, redondo e com boa cobertura */
+.user-icon,
+.post-header img.user-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    border: 2px solid #ffffff; /* contorno sutil */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* garantir override caso exista regra anterior */
+.post-header img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ajustar espaçamento vertical caso necessário */
+.post-header .user-icon {
+    vertical-align: middle;
+}

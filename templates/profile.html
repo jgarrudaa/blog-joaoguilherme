@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="perfil">
+
+    <img src="../static/uploads/{{ foto }}" class="foto-perfil">
+    <h2>Olá, {{ nome }}!</h2>
+    <hr>
+    <h3>Alterar Dados:</h3> 
+
+    <form action="/profile" method="POST" enctype="multipart/form-data">
+        <label>Nome do Usuário:</label>
+        <input type="text" name="nome" value="{{ nome }}" required>
+        <label>Usuário:</label>
+        <input type="text" name="user" value="{{ user }}" required>
+        <label></label>
+        <input type="file" name="foto" accept=".jpg, .png, .webp">
+
+        <a href="/usuario/novasenha"><button type="button">Alterar senha</button></a>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</div>
+
+{% endblock %}

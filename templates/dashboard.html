@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div id="dashboard">
+        <div id="dados">
+            <p>Total de Posts: {{ total_posts[0] if total_posts else 0 }}</p>
+            <p>Total de Usuários: {{ total_usuarios[0] if total_usuarios else 0 }}</p>
+        </div>
+        <div id="info">
+            <div class="col-info">
+                <h3>Usuários</h3>
+                <table>
+                    <tr>
+                        <th>Ações</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>User</th>
+                        <th>Data de Cadastro</th>
+                        <th>Status</th>
+                        <th>Resetar Senha</th>
+                    </tr>
+                {% for u in usuarios %}
+                    <tr {% if not u.ativo %}class="usuario-banido"{% endif %}>
+                        <td><a href="/usuario/excluir/{{ u.idUser }}" onclick="return confirm('Tem certeza que deseja excluir este usuário?');"><i data-feather="trash-2"></i></a></td>
+                        <td>{{ u.idUser }}</td>
+                        <td>{{ u.name }}</td>
+                        <td>{{ u.userName }}</td>
+                        <td>{{ u.registrationDate.strftime('%d/%m/%y') }}</td>
+                        <td><a href="/usuario/status/{{ u.idUser }}"><button>{{ "Banir" if u.ativo else "Reativar" }}</button></a></td>
+                        <td ><a href="/usuario/reset/{{ u.idUser }}" onclick="return confirm('Resetar senha para este usuário?');">
+                            <button>Resetar Senha</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">Nenhum usuário cadastrado.</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+            <div class="col-info">
+                <h3>Posts</h3>
+                <table>
+                    <tr>
+                        <th>Ações</th>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Data</th>
+                    </tr>
+                {% for p in posts %}
+                    <tr>
+                        <td><a href="/excluirpost/{{ p.idPost }}"><i data-feather="trash-2"></i></a></td>
+                        <td>{{ p.idPost }}</td>
+                        <td>{{ p.title }}</td>
+                        <td>{{ p.userName }}</td>
+                        <td>{{ p.postDate.strftime('%d/%m/%y') if p.postDate is not none else '' }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Nenhum post cadastrado.</td>
+                    </tr>
+                {% endfor %}               
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}
